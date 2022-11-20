@@ -7,7 +7,7 @@
 5. [How To](#howto)
 6. [Summary](#summary)
 
-# Libraries <a name="libraries"></a>
+## Libraries <a name="libraries"></a>
 + pandas
 + numpy
 + sqlalchemy
@@ -18,17 +18,17 @@
 
 Using Python 3.9*
 
-# Motivation <a name="motivation"></a>
+## Motivation <a name="motivation"></a>
 
-# General Descriptions <a name="generaldescriptions"></a>
+## General Descriptions <a name="generaldescriptions"></a>
 
-# File Descriptions <a name="filedescriptions"></a>
+## File Descriptions <a name="filedescriptions"></a>
 
 
-# How To <a name="howto"></a>
+## How To <a name="howto"></a>
 
-    ## Python Scripts 
+    ### Python Scripts 
 
-    ## Web App
+    ### Web App
 
-# Summary <a name="summary"></a>
+## Summary <a name="summary"></a>
