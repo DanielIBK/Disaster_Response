@@ -45,16 +45,16 @@ The Project is structed as following:
 + README.md: read me file
 + ETL Pipeline Preparation.ipynb: Extract, contains the code for Transform, Load Pipline
 + ML Pipeline Preparation.ipynb: contains the code for Machine Learning training and classification model
-   - workspace 
-        - \app
-            + run.py: file to run the application
-        - \data
-            + categories.csv: CSV file for categories datas
-            + messages.csv: CSV file for messages data
-            + DisasterResponse.db: Database file for the disaster response data
-            + process_data.py: ETL process python script
-        - \models
-            + train_classifier.py: Classification python code 
++ workspace 
+    - \app
+        + run.py: file to run the application
+    + \data
+        + categories.csv: CSV file for categories datas
+        + messages.csv: CSV file for messages data
+        + DisasterResponse.db: Database file for the disaster response data
+        + process_data.py: ETL process python script
+    + \models
+        + train_classifier.py: Classification python code 
 
 ## How To <a name="howto"></a>
 
