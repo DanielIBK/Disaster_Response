@@ -1,3 +1,12 @@
+"""
+ETL Preprocessing for the Web App.
+
+Runs the process routine to load extract and clean the input
+data from diffrent csv files and saved them as a ready to go database
+
+    Returns:
+        DisasterData.db: Clean Database with necessary data
+"""
 import sys
 import pandas as pd
 import numpy as np
@@ -12,8 +21,8 @@ def load_data(messages_filepath, categories_filepath):
     and merge them into one Dataframe based on a inner join on the column name 'id'
 
     Args:
-        messages_filepath (str): _description_
-        categories_filepath (str): _description_
+        messages_filepath (str): The filepath to the messages.csv data as a string
+        categories_filepath (str): The filepath to the caregories.csv data as a string
 
     Return:
         df (DataFrame): A pandas dataframe with the merged messages and categories
@@ -31,7 +40,7 @@ def clean_data(df):
       Cleans the Dataframe df and combines them into one large df
 
     Args:
-        df (dataframe): _description_
+        df (dataframe): The input dataframe which should be cleaned
 
     Return:
       df (DataFrame): A cleaned dataframe with merged data from messages and categories
@@ -72,8 +81,8 @@ def save_data(df, database_filename):
     """Safe the data as SQL Lite.
 
     Args:
-        df (_type_): _description_
-        database_filename (_type_): _description_
+        df (dataframe): The Dateframe which should be safed in a database
+        database_filename (string): The file path as a string to the database 
     """
     engine = create_engine('sqlite:///{}'.format(database_filename))
     try: 

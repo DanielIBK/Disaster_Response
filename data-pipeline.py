@@ -8,7 +8,7 @@ from sqlalchemy import create_engine
 
 def load_data(data_file):
     # read in file
-
+    
 
     # clean data
 
@@ -37,7 +37,7 @@ def build_model():
 
 def train(X, y, model):
     # train test split
-
+    X_train, X_test, y_train, y_test = train_test_split(X, y)
 
     # fit model
 
@@ -50,6 +50,9 @@ def train(X, y, model):
 
 def export_model(model):
     # Export model as a pickle file
+    filename = 'classifier.pkl'
+    with open (filename, 'wb') as f:
+        pickle.dump(cv_rf, f)
 
 
 
