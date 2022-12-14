@@ -65,7 +65,7 @@ The Project is structed as following:
 
  ### Web App
 2. To start the app run the following codes:
-    - To start the App run the python script in the app's directory (/app) 'python run.py'
+    - To start the App run the python script in the app's directory (/app) `python run.py`
     - Go to the app screen {link: TBD}
 
 ## Summary <a name="summary"></a>
