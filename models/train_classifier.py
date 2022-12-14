@@ -31,13 +31,13 @@ def load_data(database_filepath):
     """Load data from the database.
 
     Args:
-        database_filepath (str): The path to the databse file
+        database_filepath (str): The relative path to the databse file
 
     Returns:
         X (Dataframe): Feature Dataframe
-        Y (Dataframe): Target Data Array
+        y (Dataframe): Target Data Array
     """
-    engine = create_engine('sqlite:///{}'.format(database_filepath))
+    engine = create_engine('sqlite://{}'.format(database_filepath))
     df = pd.read_sql_table(table_name='tbl_disastermessages', con=engine)
     X = df['message']
     y = df.iloc[:,4:]
@@ -95,7 +95,7 @@ def build_model():
     return cv
 
 
-def evaluate_model(model, X_test, y_test, category_names):
+def evaluate_model(model, X_test, y_test): #, category_names):
     """Evaluate the model and print classifcation report.
 
     Args:
@@ -132,7 +132,7 @@ def main():
     if len(sys.argv) == 3:
         database_filepath, model_filepath = sys.argv[1:]
         print('Loading data...\n    DATABASE: {}'.format(database_filepath))
-        X, Y, category_names = load_data(database_filepath)
+        X, Y = load_data(database_filepath)
         X_train, X_test, Y_train, Y_test = train_test_split(X, Y, test_size=0.2)
         
         print('Building model...')
@@ -142,7 +142,7 @@ def main():
         model.fit(X_train, Y_train)
         
         print('Evaluating model...')
-        evaluate_model(model, X_test, Y_test, category_names)
+        evaluate_model(model, X_test, Y_test)
 
         print('Saving model...\n    MODEL: {}'.format(model_filepath))
         save_model(model, model_filepath)

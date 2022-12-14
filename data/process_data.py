@@ -75,7 +75,7 @@ def clean_data(df):
     # drop duplicates
     df.drop_duplicates(inplace=True)
 
-    return
+    return df
 
 def save_data(df, database_filename):
     """Safe the data as SQL Lite.

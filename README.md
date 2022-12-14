@@ -60,12 +60,12 @@ The Project is structed as following:
 
  ### Data Python Scripts 
  1. Prepare the data with the following command:
-    - Run the ETL Pipeline for data processing: `python data/process_data.py data/dmessages.csv data/categories.csv data/DisasterResponse.db`
-    - Run the ML Model for data anylsis and training: `python models/train_classifier.py /data/Disasterdata.db models/classifier.pkl`
+    - Run the ETL Pipeline for data processing: `python \data/process_data.py data/messages.csv data/categories.csv data/DisasterResponse.db`
+    - Run the ML Model for data anylsis and training: `python /models/train_classifier.py /data/Disasterdata.db ./models/classifier.pkl`
 
  ### Web App
 2. To start the app run the following codes:
-    - To start the App run the python script in the app's directory (/app) `python run.py`
+    - To start the App run the python script in the app's directory (/app) `python .\app\run.py`
     - Go to the app screen {link: TBD}
 
 ## Summary <a name="summary"></a>
