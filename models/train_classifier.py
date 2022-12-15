@@ -37,11 +37,11 @@ def load_data(database_filepath):
         X (Dataframe): Feature Dataframe
         y (Dataframe): Target Data Array
     """
-    engine = create_engine('sqlite://{}'.format(database_filepath))
+    engine = create_engine('sqlite:///'+database_filepath)
     df = pd.read_sql_table(table_name='tbl_disastermessages', con=engine)
     X = df['message']
     y = df.iloc[:,4:]
-    return X,y
+    return X, y
 
 
 def tokenize(text):
@@ -67,6 +67,14 @@ def tokenize(text):
 
     return tokens
 
+def simple_model():
+    pipeline_rf = Pipeline([
+        ('vect', CountVectorizer(tokenizer = tokenize)),
+        ('tfidf', TfidfTransformer()),
+        ('clf', MultiOutputClassifier(RandomForestClassifier()))
+        ]) 
+
+    
 
 def build_model():
     """Build the pipeline and grid search classification model.
@@ -87,9 +95,8 @@ def build_model():
         'clf__estimator__min_samples_split':[4,6]
     }
 
-    cv = GridSearchCV(
-        pipeline_rf,param_grid = parameters_rf, 
-        verbose=4
+    cv = GridSearchCV(pipeline_rf,param_grid = parameters_rf, 
+        verbose=4, 
         )
 
     return cv
@@ -132,17 +139,17 @@ def main():
     if len(sys.argv) == 3:
         database_filepath, model_filepath = sys.argv[1:]
         print('Loading data...\n    DATABASE: {}'.format(database_filepath))
-        X, Y = load_data(database_filepath)
-        X_train, X_test, Y_train, Y_test = train_test_split(X, Y, test_size=0.2)
+        X, y = load_data(database_filepath)
+        X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2)
         
         print('Building model...')
         model = build_model()
         
         print('Training model...')
-        model.fit(X_train, Y_train)
+        model.fit(X_train, y_train)
         
         print('Evaluating model...')
-        evaluate_model(model, X_test, Y_test)
+        evaluate_model(model, X_test, y_test)
 
         print('Saving model...\n    MODEL: {}'.format(model_filepath))
         save_model(model, model_filepath)
