@@ -66,14 +66,6 @@ def tokenize(text):
     tokens = [stemmer.stem(t) for t in tokens]
 
     return tokens
-
-def simple_model():
-    pipeline_rf = Pipeline([
-        ('vect', CountVectorizer(tokenizer = tokenize)),
-        ('tfidf', TfidfTransformer()),
-        ('clf', MultiOutputClassifier(RandomForestClassifier()))
-        ]) 
-
     
 
 def build_model():
