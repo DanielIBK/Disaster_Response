@@ -69,3 +69,5 @@ The Project is structed as following:
     - Go to the app screen 'http://192.168.178.30:3001/'
 
 ## Summary <a name="summary"></a>
+This project can improve response time and reaction time to disaster scenarios and increase efficiency in dealing with future disasters.
+This could make a big difference and in some cases make the difference between life and death.

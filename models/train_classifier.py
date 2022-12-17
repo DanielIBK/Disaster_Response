@@ -61,9 +61,11 @@ def tokenize(text):
     # Lemmatize
     lemmatizer = WordNetLemmatizer()
     tokens = [lemmatizer.lemmatize(t) for t in tokens]
+    
+    # Comment us either lema or stemma not both.
     # Stemming
-    stemmer = PorterStemmer()
-    tokens = [stemmer.stem(t) for t in tokens]
+    #stemmer = PorterStemmer()
+    #tokens = [stemmer.stem(t) for t in tokens]
 
     return tokens
     
